@@ -156,6 +156,7 @@ public struct HttpClientConfiguration: Codable {
     public let clientDelegateNameOverride: String?
     public let clientDelegateParameters: [String]?
     public let additionalClients: [String: AdditionalHttpClient]?
+    public let contentTypeHeaderOverride: String?
     
     public init(retryOnUnknownError: Bool,
                 knownErrorsDefaultRetryBehavior: KnownErrorsDefaultRetryBehavior,
@@ -163,7 +164,8 @@ public struct HttpClientConfiguration: Codable {
                 retriableUnknownErrors: Set<String>,
                 clientDelegateNameOverride: String? = nil,
                 clientDelegateParameters: [String]? = nil,
-                additionalClients: [String: AdditionalHttpClient]? = nil) {
+                additionalClients: [String: AdditionalHttpClient]? = nil,
+                contentTypeHeaderOverride: String? = nil) {
         self.retryOnUnknownError = retryOnUnknownError
         self.knownErrorsDefaultRetryBehavior = knownErrorsDefaultRetryBehavior
         self.unretriableUnknownErrors = unretriableUnknownErrors
@@ -171,5 +173,6 @@ public struct HttpClientConfiguration: Codable {
         self.clientDelegateNameOverride = clientDelegateNameOverride
         self.clientDelegateParameters = clientDelegateParameters
         self.additionalClients = additionalClients
+        self.contentTypeHeaderOverride = contentTypeHeaderOverride
     }
 }
